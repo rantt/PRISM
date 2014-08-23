@@ -1,26 +1,7 @@
-Main Idea
+Game for Ludum Dare 30 
 ====
 
+The game was created for Ludum Dare 30, #LD48
 
-A simple starter template to build html5 games using the Phaser framework.
+Developed using [Phaser.js](http://phaser.io)
 
-All the code has been taken from;
-https://www.npmjs.org/package/generator-phaser-mobile
-
-
-Instructions
-----
-
-1) fork this repo
-
-2) install grunt and all dependencies
-```
-npm install grunt-cli
-npm install
-grunt
-```
-
-3) Enjoy!
-
-
-_Originally named phaser-boiler-template, renamed because I hate typing :)_
