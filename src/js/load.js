@@ -12,7 +12,7 @@ Game.Boot = function(game) {
 
 Game.Boot.prototype = {
   preload: function() {
-		this.game.stage.backgroundColor = '#FFF';
+		this.game.stage.backgroundColor = '#000';
 		this.game.load.image('loading', 'assets/images/loading.png');
 		this.game.load.image('title', 'assets/images/title.png');
     this.game.load.bitmapFont('minecraftia','assets/fonts/font.png','assets/fonts/font.xml');
@@ -36,9 +36,8 @@ Game.Load.prototype = {
   	var preloading = this.game.add.sprite(Game.w/2-64, Game.h/2+50, 'loading');
   	this.game.load.setPreloadSprite(preloading);
     
-    // this.game.load.spritesheet('player','assets/images/LD48player_Gray.png',64,64,9); 
     this.game.load.spritesheet('player','assets/images/LD48player_Gray.png',32,64,8); 
-    this.zombie = this.game.load.spritesheet('zombie','assets/images/LD48zombie.png',32,64,4); 
+
     this.game.load.tilemap('hall','assets/worlds/hall.json', null, Phaser.Tilemap.TILED_JSON);
     this.game.load.tilemap('the_end','assets/worlds/end.json', null, Phaser.Tilemap.TILED_JSON);
     this.game.load.tilemap('blue','assets/worlds/blue.json', null, Phaser.Tilemap.TILED_JSON);
@@ -60,6 +59,10 @@ Game.Load.prototype = {
     this.game.load.image('crystal_green','assets/images/LD48crystals_green.png',32,64);
     this.game.load.image('crystal_yellow','assets/images/LD48crystals_yellow.png',32,64);
     this.game.load.image('green_star','assets/images/LD48greenstar.png',64,64);
+
+    this.game.load.audio('jump','assets/audio/jump.wav');
+    this.game.load.audio('hit','assets/audio/hit.wav');
+    this.game.load.audio('warp','assets/audio/warp.wav');
     
     // Music Track
     // this.game.load.audio('music','soundtrack.mp3');

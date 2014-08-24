@@ -16,26 +16,12 @@
          "name":"objects",
          "objects":[
                 {
-                 "gid":30,
-                 "height":0,
-                 "name":"",
-                 "properties":
-                    {
-                     "destination":"blue"
-                    },
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":886,
-                 "y":464
-                }, 
-                {
                  "gid":31,
                  "height":0,
                  "name":"",
                  "properties":
                     {
-                     "text":"Maybe, you're not who you were when you started."
+                     "text":"You're not who you were when you started.  Thx for playing :)"
                     },
                  "type":"",
                  "visible":true,

@@ -39,6 +39,10 @@ Game.Play.prototype = {
     // this.music = this.game.add.sound('music');
     // this.music.volume = 0.5;
     // this.music.play('',0,1,true);
+    this.playerHitSnd = this.game.add.sound('hit');
+    this.playerJumpSnd = this.game.add.sound('jump');
+    this.warpSnd = this.game.add.sound('warp');
+    this.warpSnd.volume = 0.2;
 
     cursors = this.game.input.keyboard.createCursorKeys();
 
@@ -124,6 +128,7 @@ Game.Play.prototype = {
     }
 
     if (spaceKey.isDown && this.player.body.blocked.down) {
+      this.playerJumpSnd.play();
       this.player.body.velocity.y = jumpVelocity;
     }
     
@@ -264,7 +269,6 @@ Game.Play.prototype = {
       this.game.stage.backgroundColor = '#756D5A';
       this.map = this.game.add.tilemap(this.world);
       this.map.addTilesetImage('world_normal');
-      this.map.addTilesetImage('avatar');
       this.map.addTilesetImage('crystals');
 
       this.map.setCollision(1);
@@ -294,6 +298,7 @@ Game.Play.prototype = {
     this.game.add.tween(this.player).to({angle:0},1).start();
   },
   playerDead: function() {
+    this.playerHitSnd.play();
     deaths += 1;
     this.player.kill();
     this.positionPlayer();
@@ -328,6 +333,7 @@ Game.Play.prototype = {
     mob.direction = mob.direction * -1;
   },
   nextWorld: function(player, crystal) {
+    this.warpSnd.play();
     this.world = crystal.destination;
 
 
@@ -343,10 +349,5 @@ Game.Play.prototype = {
   //     this.music.volume = 0.5;
   //   }
   // },
-  render: function() {
-    game.debug.text('Deaths: ' + deaths, 32, 32);
-    // game.debug.text('Pointerx: ' + this.game.input.activePointer.x, 64, 32);
-    // game.debug.text('Pointery: ' + this.game.input.activePointer.y, 96, 32);
-  }
 
 };
