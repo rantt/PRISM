@@ -1,6 +1,9 @@
+var tileSize = 32;
+var dRows = 20;
+var dCols = 30;
 var Game = {
-  w: 800,
-  h: 600
+  w: tileSize*dCols,
+  h: tileSize*dRows 
 };
 
 Game.Boot = function(game) {
@@ -32,10 +35,11 @@ Game.Load.prototype = {
   	var preloading = this.game.add.sprite(Game.w/2-64, Game.h/2+50, 'loading');
   	this.game.load.setPreloadSprite(preloading);
     
-    this.game.load.atlasXML('player','assets/images/player_sheet.png','assets/atlas/player_sheet.xml');
+    this.game.load.spritesheet('player','assets/images/LD48player_Gray.png',64,64,9); 
     this.game.load.tilemap('house','assets/levels/house.json', null, Phaser.Tilemap.TILED_JSON);
-    this.game.load.image('world_blue','assets/images/world_blue.png'); 
 
+    this.game.load.image('world_blue','assets/images/LD48world_blue2x.png',32,32); 
+    
     // Music Track
     // this.game.load.audio('music','soundtrack.mp3');
 

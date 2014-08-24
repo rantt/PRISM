@@ -27,19 +27,8 @@ Game.Play = function(game) {
 
 Game.Play.prototype = {
   create: function() {
+    this.game.physics.startSystem(Phaser.ARCADE);
     this.game.world.setBounds(0, 0 ,Game.w ,Game.h);
-
-    this.player = this.game.add.sprite(Game.w/2,Game.h/2,'player');
-    this.player.anchor.setTo(0.5,0.5);
-
-    this.player.animations.add('right',[3,5,3,7],10,true);
-    this.player.animations.add('left',[4,6,4,8],10,true);
-    this.game.physics.enable(this.player, Phaser.Physics.ARCADE);
-    this.player.body.gravity.y = 750;
-    this.player.body.collideWorldBounds = true;
-    this.game.camera.follow(this.player);
-
-    
 
     // // Music
     // this.music = this.game.add.sound('music');
@@ -55,9 +44,25 @@ Game.Play.prototype = {
     dKey = this.game.input.keyboard.addKey(Phaser.Keyboard.D);
     // muteKey = game.input.keyboard.addKey(Phaser.Keyboard.M);
 
+    this.loadLevel();
+
+    // this.player = this.game.add.sprite(Game.w/2,Game.h/2,'player');
+    this.player = this.game.add.sprite(64,584,'player'); //Bottom Left Corner of first map
+    this.player.anchor.setTo(0.5,0.5);
+    this.player.animations.add('right',[3,5,3,7],10,true);
+    this.player.animations.add('left',[4,6,4,8],10,true);
+    this.game.physics.enable(this.player, Phaser.Physics.ARCADE);
+    this.game.physics.arcade.TILE_BIAS = 32;
+    this.player.body.gravity.y = 750;
+    this.player.body.collideWorldBounds = true;
+    // this.game.camera.follow(this.player);
+    this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
+ 
   },
 
   update: function() {
+
+    this.game.physics.arcade.collide(this.player, this.layer);
 
     this.player.body.velocity.x = 0;
     if(cursors.left.isDown || aKey.isDown) {
@@ -87,6 +92,18 @@ Game.Play.prototype = {
     }
     // // Toggle Music
     // muteKey.onDown.add(this.toggleMute, this);
+
+  },
+  loadLevel: function() {
+    
+		this.game.stage.backgroundColor = '#5792F7';
+    this.map = this.game.add.tilemap('house');
+    this.map.addTilesetImage('tiles','world_blue');
+    this.map.setCollision(1);
+    this.map.setCollision(3);
+    this.map.setCollision(8);
+    this.layer = this.map.createLayer('layer');
+    this.layer.resizeWorld();
 
   },
   // toggleMute: function() {
