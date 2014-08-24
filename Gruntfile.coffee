@@ -72,16 +72,19 @@ module.exports = (grunt) ->
       options:
         banner: '/*! <%= PKG.name %> v<%= PKG.version %> */\n'
 
-    # jsonmin:
-    #   stripAll:
-    #     options:
-    #       stripWhitespace: true
-    #       stripComments: true
+    jsonmin:
+      stripAll:
+        options:
+          stripWhitespace: true
+          stripComments: true
 
-    #     files:
-    #       '<%= DST_DIR %>/levels/level1.json':  '<%= SRC_DIR %>/levels/level1.json'
-    #       '<%= DST_DIR %>/levels/level2.json':  '<%= SRC_DIR %>/levels/level2.json'
-    #       '<%= DST_DIR %>/levels/level3.json':  '<%= SRC_DIR %>/levels/level3.json'
+        files:
+          '<%= DST_DIR %>/assets/worlds/hall.json':  '<%= SRC_DIR %>/assets/worlds/hall.json'
+          '<%= DST_DIR %>/assets/worlds/blue.json':  '<%= SRC_DIR %>/assets/worlds/blue.json'
+          '<%= DST_DIR %>/assets/worlds/green.json':  '<%= SRC_DIR %>/assets/worlds/green.json'
+          '<%= DST_DIR %>/assets/worlds/yellow.json':  '<%= SRC_DIR %>/assets/worlds/yellow.json'
+          '<%= DST_DIR %>/assets/worlds/red.json':  '<%= SRC_DIR %>/assets/worlds/red.json'
+          '<%= DST_DIR %>/assets/worlds/end.json':  '<%= SRC_DIR %>/assets/worlds/end.json'
 
 
     imagemin:
@@ -160,7 +163,7 @@ module.exports = (grunt) ->
   @loadNpmTasks 'grunt-contrib-connect'
   @loadNpmTasks 'grunt-contrib-jshint'
   @loadNpmTasks 'grunt-contrib-uglify'
-  # @loadNpmTasks 'grunt-jsonmin'
+  @loadNpmTasks 'grunt-jsonmin'
   @loadNpmTasks 'grunt-contrib-imagemin'
   @loadNpmTasks 'grunt-contrib-cssmin'
   @loadNpmTasks 'grunt-contrib-htmlmin'
@@ -170,7 +173,7 @@ module.exports = (grunt) ->
 
 
   # 'htmlmin' and 'jsonmin' are also available options
-  @registerTask 'dist', ['clean', 'jshint', 'uglify',
+  @registerTask 'dist', ['clean', 'jshint', 'uglify','jsonmin'
                          'imagemin', 'cssmin', 'copy', 'processhtml']
   @registerTask 'server',  ['jshint', 'connect', 'watch']
   @registerTask 'update', ['curl-dir']
