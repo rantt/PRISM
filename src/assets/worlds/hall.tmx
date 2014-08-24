@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="30" height="20" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="world_normal" tilewidth="32" tileheight="32">
+  <image source="../images/LD48world.png" width="160" height="160"/>
+ </tileset>
+ <tileset firstgid="26" name="crystals" tilewidth="16" tileheight="32">
+  <image source="../images/LD48crystals.png" width="80" height="32"/>
+ </tileset>
+ <layer name="layer" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzt0jsKACAMRMGIFpL7H9hGQYLih2y0yMJrTDGNTET8UUGpU1Nru7amuWsjzJWNNGe2hSltrX97k/VGbupCvLebu+4i3PyJi1ysBSM3itCu9Hr3VQXMagTk
+  </data>
+ </layer>
+ <objectgroup name="objects" width="30" height="20">
+  <object gid="30" x="886" y="464">
+   <properties>
+    <property name="destination" value="blue"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
