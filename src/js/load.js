@@ -60,10 +60,10 @@ Game.Load.prototype = {
     this.game.load.image('crystal_yellow','assets/images/LD48crystals_yellow.png',32,64);
     this.game.load.image('green_star','assets/images/LD48greenstar.png',64,64);
 
-    this.game.load.audio('jump','assets/audio/jump.wav');
-    this.game.load.audio('hit','assets/audio/hit.wav');
-    this.game.load.audio('warp','assets/audio/warp.wav');
-    this.game.load.audio('teleport','assets/audio/teleport.wav');
+    this.game.load.audio('jump','assets/audio/jump.mp3');
+    this.game.load.audio('hit','assets/audio/hit.mp3');
+    this.game.load.audio('warp','assets/audio/warp.mp3');
+    this.game.load.audio('teleport','assets/audio/teleport.mp3');
     
     // Music Track
     // this.game.load.audio('music','assets/audio/ld48.m4a');
