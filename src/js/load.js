@@ -66,7 +66,8 @@ Game.Load.prototype = {
     this.game.load.audio('teleport','assets/audio/teleport.wav');
     
     // Music Track
-    this.game.load.audio('music','assets/audio/LD48.m4a');
+    // this.game.load.audio('music','assets/audio/ld48.m4a');
+    this.game.load.audio('music','assets/audio/ld48.mp3');
 
   },
   create: function() {

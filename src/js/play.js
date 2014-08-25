@@ -39,6 +39,7 @@ Game.Play.prototype = {
     this.music = this.game.add.sound('music');
     this.music.volume = 0.2;
     this.music.play('',0,1,true);
+
     this.playerHitSnd = this.game.add.sound('hit');
     this.playerJumpSnd = this.game.add.sound('jump');
     this.warpSnd = this.game.add.sound('warp');
