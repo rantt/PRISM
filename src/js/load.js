@@ -63,9 +63,10 @@ Game.Load.prototype = {
     this.game.load.audio('jump','assets/audio/jump.wav');
     this.game.load.audio('hit','assets/audio/hit.wav');
     this.game.load.audio('warp','assets/audio/warp.wav');
+    this.game.load.audio('teleport','assets/audio/teleport.wav');
     
     // Music Track
-    // this.game.load.audio('music','soundtrack.mp3');
+    this.game.load.audio('music','assets/audio/LD48.m4a');
 
   },
   create: function() {

@@ -36,13 +36,14 @@ Game.Play.prototype = {
     this.game.world.setBounds(0, 0 ,Game.w ,Game.h);
 
     // // Music
-    // this.music = this.game.add.sound('music');
-    // this.music.volume = 0.5;
-    // this.music.play('',0,1,true);
+    this.music = this.game.add.sound('music');
+    this.music.volume = 0.2;
+    this.music.play('',0,1,true);
     this.playerHitSnd = this.game.add.sound('hit');
     this.playerJumpSnd = this.game.add.sound('jump');
     this.warpSnd = this.game.add.sound('warp');
     this.warpSnd.volume = 0.2;
+    this.teleportSnd = this.game.add.sound('teleport');
 
     cursors = this.game.input.keyboard.createCursorKeys();
 
@@ -120,6 +121,7 @@ Game.Play.prototype = {
 
     if (this.world === 'yellow') {
       if ((this.game.input.activePointer.isDown) && (this.game.time.now - teleportCD > 0)) {
+        this.teleportSnd.play();
         this.player.x = this.game.input.activePointer.worldX;
         this.player.y = this.game.input.activePointer.worldY;
         this.game.camera.y = this.player.y-500;
@@ -214,7 +216,7 @@ Game.Play.prototype = {
       this.player.starty = 218; 
       this.positionPlayer();
 
-    }else if (this.world == 'yellow') {
+    }else if (this.world === 'yellow') {
       //Teleportation
 		  this.game.stage.backgroundColor = '#FFF499'; //yellow world
       this.map = this.game.add.tilemap(this.world);
@@ -238,7 +240,7 @@ Game.Play.prototype = {
       this.positionPlayer();
 
 
-    }else if (this.world == 'green') {
+    }else if (this.world === 'green') {
       //You move faster and jump higher in the blue world
       jumpVelocity = -500;
       moveSpeed = 400;
@@ -263,7 +265,7 @@ Game.Play.prototype = {
       this.player.startx = 550;
       this.player.starty = 500; 
       this.positionPlayer();
-    }else if (this.world == 'the_end') {
+    }else if (this.world === 'the_end') {
       // this.player = this.game.add.sprite(64,584,'player'); //Bottom Left Corner of first map
       this.game.add.image(800,480,'avatar'); 
       this.game.stage.backgroundColor = '#756D5A';
